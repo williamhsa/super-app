@@ -1,0 +1,12 @@
+{
+  "name": "@super-app/modules/home",
+  "version": "0.0.1",
+  "main": "./index.ts",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  }
+}
