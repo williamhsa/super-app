@@ -16,8 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@super-app/components": ["libs/components/src/index.ts"],
-      "@super-app/modules/home": ["libs/modules/home/src/index.ts"]
+      "@super-app/web-internal/*": ["apps/web/*"]
     }
   },
+  "include": ["libs/components/src/index.ts"],
   "exclude": ["node_modules", "**/node_modules/*", "temp"]
 }
