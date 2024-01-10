@@ -16,6 +16,11 @@
     "baseUrl": ".",
     "paths": {
       "@super-app/components": ["libs/components/src/index.ts"],
+      "@super-app/modules/home": ["libs/modules/home/src/index.ts"],
+      "@super-app/modules/login": ["libs/modules/login/src/index.ts"],
+      "@super-app/modules/willresidehub": [
+        "libs/modules/willresidehub/src/index.ts"
+      ],
       "@super-app/web-internal/*": ["apps/web/*"]
     }
   },
