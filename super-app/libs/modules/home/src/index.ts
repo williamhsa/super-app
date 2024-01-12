@@ -1,1 +1,4 @@
-export * from './modules-home';
+import { ModulesHome } from './modules-home';
+
+export { ModulesHome };
+

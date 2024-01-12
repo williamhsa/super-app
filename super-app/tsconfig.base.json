@@ -24,6 +24,9 @@
       "@super-app/web-internal/*": ["apps/web/*"]
     }
   },
-  "include": ["libs/components/src/index.ts"],
-  "exclude": ["node_modules", "**/node_modules/*", "temp"]
+  "include": [
+    "./libs/*",
+    "./apps/*/src/**/*",
+  ],
+  "exclude": ["node_modules", "**/node_modules/*", "temp", "tmp"]
 }
