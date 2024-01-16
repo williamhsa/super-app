@@ -1,7 +1,6 @@
-import Button from '@mui/material/Button';
 import { ModulesHome } from '@super-app/modules/home';
 import { StrictMode } from 'react';
-import { Navigate, RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { Navigate, Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import styled from 'styled-components';
 // WillReside Hub
 const StyledApp = styled.div`
@@ -10,25 +9,27 @@ const StyledApp = styled.div`
 
 const LoginWrapper = () => <div> ae Login Wrapper </div>
 const PageErrorGlobal = () => <div> error global  </div>
-const Layout = () => <div> layout </div>
+const Layout = () => <div> <Outlet/> </div>
 
-function PublicRoutes() {
-  return [
-    {
-      path: '',
-      redirectTo: 'login'
-    },
-    {
-      path: 'login',
-      element: <LoginWrapper />,
-      elementError: <PageErrorGlobal />
-    },
-    {
-      path: '*',
-      element: <Navigate to='/login' replace />
-    }
-  ]
-};
+
+// TODO create a route publics and integrated with privates routes.
+// function PublicRoutes() {
+//   return [
+//     {
+//       path: '',
+//       redirectTo: 'login'
+//     },
+//     {
+//       path: 'login',
+//       element: <LoginWrapper />,
+//       elementError: <PageErrorGlobal />
+//     },
+//     {
+//       path: '*',
+//       element: <Navigate to='/login' replace />
+//     }
+//   ]
+// };
 
 function PrivateRoutes() {
   const auth = true; // get from state manager
@@ -39,9 +40,16 @@ function PrivateRoutes() {
       element: auth ? ( <Navigate to='/home' replace />) : (<Navigate to='/login' />)
     },
     {
+      path: '/login',
+      element: <LoginWrapper />
+    },
+    {
       element: <Layout />,
       children: [
-
+        {
+          path: 'home',
+          element: <ModulesHome/>,
+        },
       ]
     }
   ]
@@ -54,9 +62,7 @@ export function App() {
   return (
     <StrictMode>
       <StyledApp>
-        {/* <RouterProvider router={router} /> */}
-        <Button variant="contained">Hello world</Button>
-        <ModulesHome />
+        <RouterProvider router={router} />
       </StyledApp>
     </StrictMode>
 
